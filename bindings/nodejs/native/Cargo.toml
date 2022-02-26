@@ -12,8 +12,8 @@ name = "bincraft"
 crate-type = ["cdylib"]
 
 [build-dependencies]
-neon-build = "0.8.0"
+neon-build = "0.9.1"
 
 [dependencies]
-neon = "0.8.0"
+neon = "0.9.1"
 sleighcraft = { path = "../../../sleighcraft" }

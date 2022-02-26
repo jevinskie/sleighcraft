@@ -338,8 +338,9 @@ fn sleighc_compile_sla(sleigh_dir: &PathBuf) {
 
     for entry in WalkDir::new(sleigh_dir).into_iter() {
         let from_path = entry.as_ref().unwrap().path();
-        let to_path = PathBuf::from("sla").join(from_path.file_name().unwrap());
-        if from_path.extension().map(|e| e == "sla").unwrap_or(false)
+        let mut to_path = PathBuf::from("sla").join(from_path.file_name().unwrap());
+        to_path.set_extension("sla");
+        if from_path.extension().map(|e| e == "slaspec").unwrap_or(false)
             && need_recompile_sla(from_path)
         {
             sleighc_compile(from_path, &to_path);
